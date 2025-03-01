@@ -1,0 +1,110 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #fff9c4; /* Light Yellow Background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bill {
+    border: 3px solid #ffcc00; /* Golden Border */
+    padding: 20px;
+    position: relative;
+    background: #ffffff; /* Soft Yellow Background */
+    border-radius: 8px;
+}
+
+.bill h1 {
+    text-align: center;
+    color: #ffab00; /* Dark Yellow */
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bill-table th, .bill-table td {
+    border: 1px solid #ffcc00; /* Yellow Borders */
+    padding: 12px;
+    text-align: left;
+}
+
+.bill-table th {
+    background-color: white; /* Bright Yellow */
+    color: #333;
+}
+
+.bill-table td {
+    background-color: #fffde7; /* Light Yellow */
+}
+
+.totals {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.grand-total {
+    font-size: 22px;
+    color: #d17d00;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.download {
+    background-color: #ffca28;
+    color: #333;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download:hover {
+    background-color: #ffa000;
+    color: white;
+}
+
+.paid {
+    background-color: #ff9800;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.paid:hover {
+    background-color: #e65100;
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(255, 193, 7, 0.3);
+    pointer-events: none;
+    text-transform: uppercase;
+    rotate: -20deg;
+}

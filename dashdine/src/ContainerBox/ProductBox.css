@@ -1,0 +1,113 @@
+/* Container Styles */
+.product-box {
+    width: 180px;  /* Reduced width for a more compact look */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .product-box:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Image Container */
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-container:hover .product-image {
+    transform: scale(1.03);
+  }
+  
+  /* Quantity Controls */
+  .quantity-controls {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .quantity-btn {
+    background: #ffa500;
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .quantity-btn:hover {
+    background: #e59400;
+  }
+  
+  .quantity {
+    margin: 0 6px;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Footer Styles */
+  .product-footer {
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .product-name {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  
+  .product-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #27ae60;
+  }
+  
+  .no-offer {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .offer {
+    background: #e74c3c;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  

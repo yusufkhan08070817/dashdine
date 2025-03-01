@@ -1,0 +1,27 @@
+.cartitemlistcontainer{
+    display: flex;
+    width: 100vw;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  padding-bottom: 60px; /* Prevent content from being hidden behind the button */
+  position: relative; /* Ensures child elements follow positioning */
+ background-color: blanchedalmond;
+}
+.fixedbtn{
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff9800; /* Change to desired color */
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.fixedbtn:hover {
+    background-color: #e68900; /* Slightly darker shade on hover */
+  }
