@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./HomePage.css";
 import ProductBox from "../ContainerBox/ProductBox";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { useNavigate ,useLocation } from "react-router-dom";
+import { prisma } from "../lib/prismaClint";
 
 interface Product {
   id: number;
@@ -60,7 +61,7 @@ const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [orderList, setOrderList] = useState<Product[]>([]);
   const [totalQuantity, setTotalQuantity] = useState<number>(0);
-
+const [Categories,setCategories]=useState<any>()
   const filteredProducts =
     selectedCategory === "All"
       ? products
@@ -106,7 +107,19 @@ const HomePage: React.FC = () => {
   const cartclickHandle = () => {
     navigate("/cartlist", { state: orderList });
   };
+  useEffect(() => {
+    fetch(`http://localhost:5000/categories`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data)
+        console.log(data);
+        
+      })
+      .catch((err) => console.error(err));
 
+      console.log(Categories);
+      
+  }, []);
   // Update total quantity whenever the order list changes
   useEffect(() => {
     const total = orderList.reduce(

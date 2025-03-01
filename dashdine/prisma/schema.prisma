@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id      String @id
+  name    String
+  storeId String
+  Store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  Item    Item[]
+}
+
+model Item {
+  id         String      @id
+  name       String
+  price      Float
+  categoryId String
+  Category   Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  OrderItem  OrderItem[]
+}
+
+model Order {
+  id          String      @id
+  tableNumber Int
+  createdAt   DateTime    @default(now())
+  storeId     String
+  orderStatus OrderStatus @default(Pending)
+  totalPrice  Float
+  orderType   OrderType
+  Store       Store       @relation(fields: [storeId], references: [id])
+  OrderItem   OrderItem[]
+}
+
+model OrderItem {
+  id       String @id
+  orderId  String
+  itemId   String
+  quantity Int
+  Item     Item   @relation(fields: [itemId], references: [id])
+  Order    Order  @relation(fields: [orderId], references: [id])
+}
+
+model Store {
+  id             String     @id
+  name           String
+  tables         Int
+  location       String
+  openTime       String
+  closingTime    String
+  acceptingOrder Boolean
+  createdAt      DateTime   @default(now())
+  userId         String
+  logo           String
+  Category       Category[]
+  Order          Order[]
+  User           User       @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id    String  @id
+  name  String
+  email String  @unique
+  Store Store[]
+}
+
+enum OrderStatus {
+  Pending
+  Confirmed
+  Preparing
+  Ready
+  Completed
+  Cancelled
+}
+
+enum OrderType {
+  DineIn
+  TakeAway
+  Delivery
+}
