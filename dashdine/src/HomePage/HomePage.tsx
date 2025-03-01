@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import ProductBox from "../ContainerBox/ProductBox";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useLocation } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -16,6 +16,13 @@ interface Product {
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
+  const storeId = params.get("storeId");
+  const table = params.get("table");
+  console.log(storeId,table);
+  
   const initialProducts: Product[] = [
     {
       id: 1,
@@ -155,7 +162,14 @@ const HomePage: React.FC = () => {
         ))}
       </div>
 
-      <h2 className="section-title">Order List</h2>
+      
+    </div>
+  );
+};
+
+export default HomePage;
+/*
+<h2 className="section-title">Order List</h2>
       <div className="order-list">
         {orderList.length === 0 ? (
           <p>No items in the order list.</p>
@@ -172,8 +186,4 @@ const HomePage: React.FC = () => {
           ))
         )}
       </div>
-    </div>
-  );
-};
-
-export default HomePage;
+*/
